@@ -1,16 +1,17 @@
 export default {
 	async fetch(request, env, ctx) {
 		let url = URL.parse(request.url);
+		let request_send = false
 
 		let target = getUrl("url", url.search)
 
-		console.log(target);
+		const response = await fetch(target, {
+			method: 'GET',
+		})
 
-		// fetch(request, {
-		// 	method: 'GET',
-		//
-		// })
-		return new Response('Hello ddddWorld!');
+		const data = await response?.text()
+
+		return new Response(data ?? "Error -> url is not valid");
 	}
 };
 
