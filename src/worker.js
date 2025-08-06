@@ -1,5 +1,6 @@
 export default {
-  async fetch(request, env, ctx) {
-    return new Response('Hello ddddWorld!');
-  }
+	async fetch(request, env, ctx) {
+		console.log(env.URL)
+		return new Response('Hello ddddWorld!');
+	}
 };
